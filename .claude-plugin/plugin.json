@@ -1,0 +1,9 @@
+{
+  "name": "gaia",
+  "version": "0.1.0",
+  "description": "Estimate the energy, carbon and water footprint of your Claude Code usage.",
+  "author": {
+    "name": "Jared Forth"
+  },
+  "license": "AGPL-3.0-or-later"
+}

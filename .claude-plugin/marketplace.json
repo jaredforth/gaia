@@ -1,0 +1,14 @@
+{
+  "name": "gaia",
+  "owner": {
+    "name": "Jared Forth"
+  },
+  "plugins": [
+    {
+      "name": "gaia",
+      "source": "./",
+      "description": "Environmental footprint of your Claude Code usage."
+    }
+  ],
+  "description": "Environmental footprint tracking for Claude Code."
+}
