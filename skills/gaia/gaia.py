@@ -19,7 +19,9 @@ PUE = 1.2                 # datacenter overhead (cooling, power conversion)
 G_CO2_PER_KWH = 400       # rough global grid average
 L_WATER_PER_KWH = 1.1     # on-site cooling water
 PHONE_CHARGE_WH = 15
-CAR_G_CO2_PER_KM = 170
+CAR_G_CO2_PER_MILE = 400    # EPA typical US passenger vehicle
+G_PER_LB = 453.6
+L_PER_GAL = 3.785
 
 
 def wh_per_1k(model):
@@ -93,8 +95,8 @@ def report(totals, label):
     co2 = total / 1000 * G_CO2_PER_KWH
     lines += ["",
               f"Energy  {total:,.1f} Wh  (~{total / PHONE_CHARGE_WH:,.1f} phone charges)",
-              f"Carbon  {co2:,.1f} g CO2e  (~{co2 / CAR_G_CO2_PER_KM:,.2f} km driven)",
-              f"Water   {total / 1000 * L_WATER_PER_KWH * 1000:,.0f} mL",
+              f"Carbon  {co2 / G_PER_LB:,.2f} lb CO2e  (~{co2 / CAR_G_CO2_PER_MILE:,.2f} miles driven)",
+              f"Water   {total / 1000 * L_WATER_PER_KWH / L_PER_GAL:,.2f} gal",
               "", "Rough estimates; Anthropic does not publish per-token energy data. Tune constants in gaia.py."]
     return "\n".join(lines)
 
